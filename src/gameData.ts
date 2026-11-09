@@ -1,0 +1,262 @@
+import { Bill, Faction } from './types';
+
+export const initialFactions: Faction[] = [
+  {
+    id: 'player',
+    name: 'Ваша партия',
+    color: '#3B82F6',
+    seats: 80,
+    ideology: 'Центризм',
+    mood: 70,
+  },
+  {
+    id: 'left',
+    name: 'Партия Прогресса',
+    color: '#EF4444',
+    seats: 65,
+    ideology: 'Левые',
+    mood: 50,
+  },
+  {
+    id: 'right',
+    name: 'Консервативный Союз',
+    color: '#F59E0B',
+    seats: 60,
+    ideology: 'Правые',
+    mood: 50,
+  },
+  {
+    id: 'greens',
+    name: 'Зелёная Инициатива',
+    color: '#10B981',
+    seats: 35,
+    ideology: 'Экология',
+    mood: 50,
+  },
+  {
+    id: 'liberals',
+    name: 'Либеральный Фронт',
+    color: '#8B5CF6',
+    seats: 40,
+    ideology: 'Либерализм',
+    mood: 50,
+  },
+  {
+    id: 'populists',
+    name: 'Народная Воля',
+    color: '#F97316',
+    seats: 30,
+    ideology: 'Популизм',
+    mood: 50,
+  },
+];
+
+export const allBills: Bill[] = [
+  {
+    id: 'tax_reform',
+    title: 'Налоговая реформа',
+    description: 'Снижение налогов для малого бизнеса и повышение для крупных корпораций',
+    category: 'economy',
+    effects: {
+      popularity: 10,
+      budget: -50,
+      factionEffects: [
+        { factionId: 'left', moodChange: 15 },
+        { factionId: 'right', moodChange: -20 },
+        { factionId: 'liberals', moodChange: 5 },
+        { factionId: 'populists', moodChange: 10 },
+      ],
+    },
+    icon: '💰',
+  },
+  {
+    id: 'free_education',
+    title: 'Бесплатное высшее образование',
+    description: 'Полное финансирование высшего образования из государственного бюджета',
+    category: 'education',
+    effects: {
+      popularity: 15,
+      budget: -80,
+      factionEffects: [
+        { factionId: 'left', moodChange: 20 },
+        { factionId: 'right', moodChange: -15 },
+        { factionId: 'greens', moodChange: 5 },
+        { factionId: 'populists', moodChange: 10 },
+      ],
+    },
+    icon: '🎓',
+  },
+  {
+    id: 'green_energy',
+    title: 'Переход на зелёную энергию',
+    description: 'Масштабная программа по замене ископаемого топлива на возобновляемые источники',
+    category: 'environment',
+    effects: {
+      popularity: 8,
+      budget: -100,
+      factionEffects: [
+        { factionId: 'greens', moodChange: 25 },
+        { factionId: 'right', moodChange: -10 },
+        { factionId: 'left', moodChange: 10 },
+        { factionId: 'populists', moodChange: -15 },
+      ],
+    },
+    icon: '🌱',
+  },
+  {
+    id: 'military_budget',
+    title: 'Увеличение военного бюджета',
+    description: 'Удвоение расходов на оборону и модернизацию вооружённых сил',
+    category: 'security',
+    effects: {
+      popularity: -5,
+      budget: -120,
+      factionEffects: [
+        { factionId: 'right', moodChange: 25 },
+        { factionId: 'left', moodChange: -20 },
+        { factionId: 'greens', moodChange: -15 },
+        { factionId: 'populists', moodChange: 5 },
+      ],
+    },
+    icon: '🛡️',
+  },
+  {
+    id: 'healthcare',
+    title: 'Реформа здравоохранения',
+    description: 'Расширение бесплатной медицинской помощи и строительство новых больниц',
+    category: 'social',
+    effects: {
+      popularity: 20,
+      budget: -90,
+      factionEffects: [
+        { factionId: 'left', moodChange: 15 },
+        { factionId: 'right', moodChange: -5 },
+        { factionId: 'liberals', moodChange: 10 },
+        { factionId: 'populists', moodChange: 15 },
+      ],
+    },
+    icon: '🏥',
+  },
+  {
+    id: 'digital_rights',
+    title: 'Закон о цифровых правах',
+    description: 'Защита персональных данных и свобода интернета',
+    category: 'social',
+    effects: {
+      popularity: 12,
+      budget: -20,
+      factionEffects: [
+        { factionId: 'liberals', moodChange: 25 },
+        { factionId: 'greens', moodChange: 10 },
+        { factionId: 'right', moodChange: -10 },
+        { factionId: 'populists', moodChange: -5 },
+      ],
+    },
+    icon: '🔐',
+  },
+  {
+    id: 'pension_reform',
+    title: 'Пенсионная реформа',
+    description: 'Повышение пенсионного возраста с увеличением выплат',
+    category: 'economy',
+    effects: {
+      popularity: -15,
+      budget: 40,
+      factionEffects: [
+        { factionId: 'right', moodChange: 15 },
+        { factionId: 'left', moodChange: -25 },
+        { factionId: 'populists', moodChange: -20 },
+        { factionId: 'liberals', moodChange: 5 },
+      ],
+    },
+    icon: '👴',
+  },
+  {
+    id: 'housing',
+    title: 'Программа доступного жилья',
+    description: 'Субсидирование ипотеки и строительство социального жилья',
+    category: 'social',
+    effects: {
+      popularity: 18,
+      budget: -70,
+      factionEffects: [
+        { factionId: 'left', moodChange: 15 },
+        { factionId: 'populists', moodChange: 20 },
+        { factionId: 'right', moodChange: -5 },
+        { factionId: 'greens', moodChange: -5 },
+      ],
+    },
+    icon: '🏠',
+  },
+  {
+    id: 'anti_corruption',
+    title: 'Антикоррупционный пакет',
+    description: 'Ужесточение наказаний за коррупцию и создание независимого органа контроля',
+    category: 'security',
+    effects: {
+      popularity: 25,
+      budget: -30,
+      factionEffects: [
+        { factionId: 'greens', moodChange: 15 },
+        { factionId: 'liberals', moodChange: 15 },
+        { factionId: 'populists', moodChange: 10 },
+        { factionId: 'right', moodChange: -10 },
+      ],
+    },
+    icon: '⚖️',
+  },
+  {
+    id: 'tech_investment',
+    title: 'Инвестиции в технологии',
+    description: 'Финансирование научных исследований и технологических стартапов',
+    category: 'economy',
+    effects: {
+      popularity: 10,
+      budget: -60,
+      factionEffects: [
+        { factionId: 'liberals', moodChange: 15 },
+        { factionId: 'greens', moodChange: 10 },
+        { factionId: 'left', moodChange: 5 },
+        { factionId: 'populists', moodChange: -5 },
+      ],
+    },
+    icon: '🚀',
+  },
+  {
+    id: 'border_control',
+    title: 'Усиление контроля границ',
+    description: 'Увеличение числа пограничников и внедрение новых технологий наблюдения',
+    category: 'security',
+    effects: {
+      popularity: 5,
+      budget: -45,
+      factionEffects: [
+        { factionId: 'right', moodChange: 20 },
+        { factionId: 'populists', moodChange: 15 },
+        { factionId: 'left', moodChange: -15 },
+        { factionId: 'liberals', moodChange: -10 },
+        { factionId: 'greens', moodChange: -5 },
+      ],
+    },
+    icon: '🚧',
+  },
+  {
+    id: 'public_transport',
+    title: 'Развитие общественного транспорта',
+    description: 'Модернизация метро, автобусов и создание новых трамвайных линий',
+    category: 'environment',
+    effects: {
+      popularity: 14,
+      budget: -55,
+      factionEffects: [
+        { factionId: 'greens', moodChange: 20 },
+        { factionId: 'left', moodChange: 10 },
+        { factionId: 'populists', moodChange: 10 },
+        { factionId: 'right', moodChange: -5 },
+      ],
+    },
+    icon: '🚇',
+  },
+];
+
+export const totalSeats = initialFactions.reduce((sum, f) => sum + f.seats, 0);
